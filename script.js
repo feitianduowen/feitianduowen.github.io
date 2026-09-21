@@ -83,3 +83,23 @@ if (projectDeck) {
   window.addEventListener('resize', resizeDeck);
   setActiveProject(0);
 }
+
+document.querySelectorAll('.keyword-field').forEach((field) => {
+  const keywords = [...field.querySelectorAll('.keyword')];
+  field.addEventListener('pointermove', (event) => {
+    const bounds = field.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - .5;
+    const y = (event.clientY - bounds.top) / bounds.height - .5;
+    keywords.forEach((keyword) => {
+      const depth = Number(keyword.dataset.depth || 1);
+      keyword.style.setProperty('--hover-x', `${x * depth * 18}px`);
+      keyword.style.setProperty('--hover-y', `${y * depth * 14}px`);
+    });
+  });
+  field.addEventListener('pointerleave', () => {
+    keywords.forEach((keyword) => {
+      keyword.style.setProperty('--hover-x', '0px');
+      keyword.style.setProperty('--hover-y', '0px');
+    });
+  });
+});
