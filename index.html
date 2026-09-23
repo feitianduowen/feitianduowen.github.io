@@ -1,120 +1,40 @@
 <!doctype html>
 <html lang="zh-CN">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="南方科技大学计算机科学与技术专业学生的个人技术主页，关注并行计算、GPU 架构、AI Infrastructure、超算与大模型推理优化。" />
-    <meta name="theme-color" content="#0b1020" />
-    <title>Feitianduowen · Parallel Computing & AI Infrastructure</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="noise" aria-hidden="true"></div>
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="返回首页"><span class="brand-mark">F</span><span>feitianduowen</span></a>
-      <nav class="desktop-nav" aria-label="主导航">
-        <a href="#work">经历</a>
-        <a href="#focus">研究方向</a>
-        <a href="#contact">联系</a>
-      </nav>
-      <button class="menu-toggle" type="button" aria-label="打开导航" aria-expanded="false"><span></span><span></span></button>
-    </header>
-
-    <main id="top">
-      <section class="hero section-shell">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="status-dot"></span> CS undergraduate · Shenzhen, China</p>
-          <h1>Siyu Wang<br /><small class="hero-name-cn">王思宇</small></h1>
-          <p class="hero-lede">我是南方科技大学计算机科学与技术专业大三学生，主要关注 Parallel Computing、GPU Architecture、AI Infrastructure、Supercomputing 及大模型推理加速。</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#work">查看项目 <span>↘</span></a>
-            <a class="button button-quiet" href="#contact">联系我</a>
-          </div>
-        </div>
-        <div class="hero-signal" aria-label="兴趣方向概览">
-          <div class="signal-card signal-card-main">
-            <div class="signal-top"><span>current focus</span><span class="mono">2026 / 09</span></div>
-            <div class="signal-title">LLM inference<br /><strong>systems</strong></div>
-            <div class="signal-bars" aria-hidden="true"><i style="--bar: 76%"></i><i style="--bar: 54%"></i><i style="--bar: 88%"></i><i style="--bar: 43%"></i><i style="--bar: 67%"></i><i style="--bar: 92%"></i><i style="--bar: 61%"></i><i style="--bar: 80%"></i></div>
-            <div class="signal-foot"><span>prefill</span><span>decode</span><span>throughput</span></div>
-          </div>
-          <div class="orbit orbit-one">GPU</div>
-          <div class="orbit orbit-two">HPC</div>
-          <div class="orbit orbit-three">FPGA</div>
-        </div>
-      </section>
-
-      <section class="section-shell work-section" id="work">
-        <div class="work-layout">
-        <div class="section-heading"><h2>翠微横径，<br /><span>水穷云起。</span></h2><p>时间线记录项目的阶段、角色和问题边界。链接会带你到竞赛页面或代码仓库。</p></div>
-
-        <div class="project-deck" aria-live="polite">
-        <article class="work-card featured">
-          <div class="work-index">01 / 05</div>
-          <div class="work-body">
-            <div class="work-meta"><span class="pill live">进行中</span><span>2026.08.03 — 2026.10.09</span><span>队长 · 8 人</span></div>
-            <h3>2026 APAC AI-HPC</h3>
-            <p>围绕 Qwen3-235B-A22B 推理优化开展实验。Prefill-Decode（PD）分离、推理吞吐量、端到端延迟与 GPU 资源利用率之间的权衡，并通过统一负载与指标对不同方案进行比较。</p>
-            <p class="detail">接触 CPU 节点的资源组织与运行环境：包括进程/线程布局、绑核与 NUMA 亲和性、节点间任务分配，以及 MPI 的基本通信模式和启动方式。分析性能时，结合通信开销、同步等待、内存带宽和 GPU 空闲时间，区分计算瓶颈与系统调度瓶颈；</p>
-            <div class="work-tags"><span>Qwen3-235B-A22B</span><span>PD disaggregation</span><span>MPI / CPU nodes</span><span>Benchmarking</span></div>
-            <a class="text-link" href="https://www.hpcadvisorycouncil.com/events/2026/APAC-AI-HPC/benchmarking.php" target="_blank" rel="noreferrer">查看竞赛说明 <span>↗</span></a>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <div class="work-index">02 / 05</div>
-          <div class="work-body">
-            <div class="work-meta"><span class="pill planned">研究中</span><span>2026.09.10 — 2027.01.09</span><span>队长 · 3 人</span></div>
-            <h3>大模型推理系统：Prefill / Decode 调度优化</h3>
-            <p>校内创新实践项目。面向不同请求长度和服务负载，研究自适应批处理与调度策略，尝试降低 Prefill 与 Decode 阶段之间的资源竞争，在延迟约束下提升 GPU 利用率与整体推理吞吐。</p>
-            <div class="work-tags"><span>Adaptive batching</span><span>Scheduling</span><span>Latency / Throughput</span></div>
-          </div>
-        </article>
-
-        <article class="work-card">
-          <div class="work-index">03 / 05</div>
-          <div class="work-body">
-            <div class="work-meta"><span class="pill event">竞赛项目</span><span>2026.09.03 — 2026.11.22</span><span>队长 · 3 人</span></div>
-            <h3>紫光同创 FPGA 开发大赛</h3>
-            <p>基于盘古 676 系列 FPGA 自主设计 RISC-V 异构智能 SoC：完成五级流水 RV32I CPU、Cache、DDR3/DMA、动态分支预测、异常与中断处理，以及乱序多发射等模块，并集成 INT8 AI 加速与图形加速单元。团队围绕目标检测、图像分类、双目深度感知等场景进行软硬件协同优化。</p>
-            <div class="work-tags"><span>RISC-V</span><span>RTL / FPGA</span><span>INT8 accelerator</span><span>SoC</span></div>
-            <a class="text-link" href="http://www.fpgachina.cn/index.html?page=jssm" target="_blank" rel="noreferrer">了解赛事信息 <span>↗</span></a>
-          </div>
-        </article>
-
-        <article class="work-card internship-card">
-          <div class="work-index">04 / 05</div>
-          <div class="work-body">
-            <div class="work-meta"><span class="pill internship">实习</span><span>2026.06.24 — 2026.07.24</span><span>法狗狗（深圳）科技有限公司</span></div>
-            <h3>FeatherDesk · 有记忆经验的桌面智能体</h3>
-            <p>参与桌面智能体项目开发，协助构建能够结合记忆与经验完成任务的桌面 Agent。实践覆盖大模型应用系统、自动化脚本、网页信息处理，以及视觉相关 Python 库的选型与使用边界。项目团队获评优秀团队，并收到继续实习的邀请。</p>
-            <a class="text-link" href="https://github.com/zceeeeee/FeatherDesk" target="_blank" rel="noreferrer">查看项目仓库 <span>↗</span></a>
-          </div>
-        </article>
-        <article class="work-card">
-          <div class="work-index">05 / 05</div>
-          <div class="work-body">
-            <div class="work-meta"><span class="pill merged">已合并</span><span>Open source</span><span>OpenCV 4.x / 5.x</span></div>
-            <h3>OpenCV 开源贡献</h3>
-            <p>曾向 OpenCV 开源项目提交代码贡献，相关 PR 已成功合并至 4.x 和 5.x 分支。这个过程让我熟悉了从问题复现、修改实现、补充验证到跟进 review 的协作流程。</p>
-            <a class="text-link" href="https://github.com/feitianduowen/opencv" target="_blank" rel="noreferrer">查看代码仓库 <span>↗</span></a>
-          </div>
-        </article>
-        </div>
-        </div>
-      </section>
-
-      <section class="contact-section" id="contact">
-        <div class="section-shell contact-inner">
-          <div><p class="eyebrow">open to conversations</p><h2>如果你也在研究<br /><em>让计算更高效的方法。</em></h2></div>
-          <div class="contact-side"><p>欢迎交流大模型推理、并行计算、GPU/FPGA 架构与系统性能分析。</p><div class="contact-links"><a href="mailto:12412639@mail.sustech.edu.cn">邮箱 <span>↗</span></a><a href="https://wpa.qq.com/msgrd?v=3&amp;uin=3935797227&amp;site=qq&amp;menu=yes" target="_blank" rel="noreferrer">QQ 3935797227 <span>↗</span></a><a href="https://github.com/feitianduowen" target="_blank" rel="noreferrer">GitHub <span>↗</span></a></div></div>
-        </div>
-      </section>
-    </main>
-    <footer class="site-footer"><span>© <span id="year"></span> feitianduowen</span><span class="mono">measure · iterate · improve</span></footer>
-    <script src="script.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080f13" />
+  <meta name="description" content="王思宇的三维履历之河。在并行计算、GPU 架构与 AI 基础设施之间探索。" />
+  <title>Feitianduowen · A River of Exploration</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-mode="intro">
+  <div id="world" aria-label="三维履历之河"></div>
+  <div class="atmosphere" aria-hidden="true"></div>
+  <header class="site-header">
+    <button class="brand" id="home" aria-label="返回开屏"><span class="brand-mark">f.</span><span>feitianduowen<small>PERSONAL UNIVERSE</small></span></button>
+    <span class="header-coordinates">SHENZHEN, CN <i>22°32′ N · 114°03′ E</i></span>
+    <div class="header-actions"><button id="contact-shortcut">建立连接 ↗</button><button id="motion-toggle" aria-label="暂停环境动效" aria-pressed="false">Ⅱ</button></div>
+  </header>
+  <main>
+    <section class="intro" id="intro" aria-label="开屏">
+      <div class="intro-copy"><p class="eyebrow"><span></span> A MIND IN EXPLORATION</p><h1>Beyond<br />the <em>visible.</em></h1><p class="intro-poem">于计算深处，探索未见。</p><p class="identity">Siyu Wang <span>/ 王思宇</span></p><p class="intro-description">南方科技大学 · 计算机科学与技术<br />在并行计算、GPU 架构与 AI 基础设施之间，<br />寻找让计算更高效的可能。</p></div>
+      <div class="core-caption" aria-hidden="true"><span>+</span> COMPUTE CORE <small>PARALLEL BY NATURE</small></div>
+      <button id="enter" class="enter-button"><span class="enter-star">✳</span><span>点击任意位置，启程<small>CLICK ANYWHERE TO BEGIN</small></span><span class="enter-arrow">↗</span></button>
+    </section>
+    <section class="journey" id="journey" aria-label="沿河探索履历" inert>
+      <div class="world-caption"><p class="eyebrow">A RIVER OF EXPLORATION</p><h2 id="landmark-title">算力之间，一桥相连。</h2><p id="landmark-subtitle">PREFILL × KV TRANSFER × DECODE</p></div>
+      <aside class="story-panel" aria-label="当前经历介绍"><div class="story-heading"><p class="eyebrow">THE ARCHIVE / 2026</p><h2 id="story-title">每一次探索，<br /><em>都有迹可循。</em></h2></div><div id="card-deck" class="card-deck"></div></aside>
+      <div class="landmark-label" aria-hidden="true"><span class="live-dot"></span><span id="landmark-name">01 / THE TRANSFER BRIDGE</span></div>
+    </section>
+  </main>
+  <footer class="scene-footer"><span class="footer-note" id="footer-note">MOVE TO SHIFT YOUR PERSPECTIVE</span><div class="journey-controls"><button id="previous" aria-label="返回上一处景物">↓</button><span class="travel-hint">向上滚动，沿河前行<small>SCROLL UP TO TRAVEL · ↓ TO RETURN</small></span><button id="next" aria-label="沿河前往下一处景物">↑</button></div><span class="scene-count" id="scene-count">SPACE 001 / ∞</span></footer>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+  <div id="scene-error" hidden><h2>空间暂时无法展开</h2><p>浏览器未能启动三维渲染。你仍然可以阅读全部经历。</p><div id="fallback-stories"></div></div>
+  <noscript><div class="noscript">请启用 JavaScript 进入三维履历空间。联系：<a href="mailto:12412639@mail.sustech.edu.cn">12412639@mail.sustech.edu.cn</a> · <a href="https://github.com/feitianduowen">GitHub</a></div></noscript>
+  <script type="module" src="script.js"></script>
+</body>
 </html>
