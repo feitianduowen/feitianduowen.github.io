@@ -121,9 +121,8 @@ function init() {
   }
   for(const side of [-1,1]){box(bridge,side*5.5,.25,0,1.2,.5,3,0x768e76);box(bridge,side*5.15,.55,0,.65,.35,2.7,0x9fae8e);}
   const kvPackets=[];for(let i=0;i<4;i++){const car=vehicle(bridge,i%2?0xb7cce2:0xcde1a6);car.position.z=i%2?.52:-.52;kvPackets.push(car);}
-  // Four different specialists occupy separate roof decks in the two factories.
+  // Specialist figures keep their full silhouettes while standing directly on the factory roofs.
   function roofExpert(x,y,z,role){
-    const deck=box(bridge,x,y-.1,z,1.9,.16,1.95,role==='chemist'||role==='mathematician'?0x9bb59c:0x8ab8aa);
     const group=new THREE.Group();group.position.set(x,y,z);bridge.add(group);
     // Keep the full specialist silhouette and props, then scale the complete figure as a small rooftop character.
     group.scale.setScalar(.62);
@@ -168,17 +167,13 @@ function init() {
       for(const dz of [-.05,.05])line(person,[[.03,1.09,.55+dz],[.81,1.45,.55+dz]],0xe5ddc3,.8);
     }
     label(group,role.toUpperCase(),0,2.2,-.7,'#def1ce',.48);
-    return {group,deck};
+    return {group};
   }
   roofExpert(-11.7,4.47,2.5,'chemist');roofExpert(-8.1,4.47,2.5,'mathematician');
   roofExpert(-10.5,4.47,-1.55,'painter');roofExpert(-7.4,4.47,-1.55,'musician');
-  roofExpert(6.5,6.48,-4,'painter');roofExpert(11.5,6.48,1,'musician');
+  roofExpert(6.5,7.05,-4,'painter');roofExpert(11.5,7.05,1,'musician');
   // Two fine workshop lines stay on their own rooftops; KV vehicles use the bridge below.
-  const rooftopBelts=[
-    {x:-9,y:3.05,z:-.9,length:6.8,color:0x456c68},
-    {x:7,y:6.62,z:-4,length:2.15,color:0x456c68},
-    {x:11,y:6.62,z:1,length:2.15,color:0x456c68}
-  ];
+  const rooftopBelts=[{x:-9,y:3.05,z:-.9,length:6.8,color:0x456c68}];
   const cargo=[];
   rooftopBelts.forEach((belt,bi)=>{
     box(bridge,belt.x,belt.y,belt.z,belt.length,.09,.58,belt.color);
@@ -192,7 +187,7 @@ function init() {
       cargo.push(parcel);
     }
   });
-  label(bridge,'PREFILL LINE',-9,5.65,-1,'#cee8a6',.95);label(bridge,'DECODE LINE',7,8.25,-4,'#99e6df',.72);label(bridge,'DECODE LINE',11,8.25,1,'#99e6df',.72);label(bridge,'KV TRANSFER',0,4.5,0,'#e3dcb2',1.3);
+  label(bridge,'PREFILL LINE',-9,5.65,-1,'#cee8a6',.95);label(bridge,'KV TRANSFER',0,4.5,0,'#e3dcb2',1.3);
 
   // 02 — A turning wheel at the water's edge irrigates a minimal field grid.
   const mill=stations[1];platform(mill,-8,0,9,12);platform(mill,-11.5,-11,13,15);
@@ -367,7 +362,7 @@ function init() {
   const eyeOrbit=mesh(new THREE.TorusGeometry(4.2,.025,4,64),mat(0x89bca2,.6),vision,-7,5.2,0);eyeOrbit.rotation.x=.9;
   const glitchGroup=new THREE.Group();glitchGroup.position.set(-7,5.2,.05);vision.add(glitchGroup);
   const glitchBars=[];
-  for(let i=0;i<14;i++){
+  for(let i=0;i<7;i++){
     const bar=box(glitchGroup,0,0,0,1.55,.22,.11,i%2?0xff3ec8:0x35f5ec,1.8);
     bar.material=bar.material.clone();bar.material.transparent=true;bar.material.depthWrite=false;bar.renderOrder=20;
     glitchBars.push(bar);
@@ -463,8 +458,8 @@ function init() {
         parcel.rotation.y=time*.65+i;
       });
       pixelScreens.forEach((screen,i)=>paintScreen(screen,Math.floor(time*(i===1?5:3))));
-      const glitchPhase=(time*2.4)%3.8;
-      const glitchOn=glitchPhase>2.62;
+      const glitchPhase=(time*1.0)%6.6;
+      const glitchOn=glitchPhase>5.25;
       glitchGroup.visible=glitchOn;
       if(glitchOn){
         glitchGroup.position.x=-7+(Math.random()-.5)*.42;
